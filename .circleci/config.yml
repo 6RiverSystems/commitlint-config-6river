@@ -1,0 +1,38 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          name: Set Up Environment
+          command: |
+            'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc'
+
+      - restore_cache:
+          key: |
+            - dependency-cache-{{ checksum "package.json" }}
+            - dependency-cache-
+
+      - run:
+          name: Install Dependencies
+          command: npm install
+
+      - run:
+          name: Lint
+          command: npm run lint
+
+      - run:
+          name: Publish
+          command: ./scripts/release.sh
+
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
