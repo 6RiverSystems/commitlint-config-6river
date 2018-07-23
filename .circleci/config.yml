@@ -8,7 +8,7 @@ jobs:
       - run:
           name: Set Up Environment
           command: |
-            echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+            echo "//registry.npmjs.org/:_authToken=${NPM_PASSWORD}" >> ~/.npmrc
 
       - restore_cache:
           key: |
