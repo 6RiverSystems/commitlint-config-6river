@@ -8,7 +8,8 @@ jobs:
       - run:
           name: Set Up Environment
           command: |
-            echo "//registry.npmjs.org/:_authToken=${NPM_PASSWORD}" >> ~/.npmrc
+            git submodule update --init
+            ci_scripts/ci_tool.sh --setup_npm
 
       - restore_cache:
           key: |
@@ -25,7 +26,7 @@ jobs:
 
       - run:
           name: Publish
-          command: ./scripts/release.sh
+          command: ci_scripts/ci_tool.sh --npm_publish
 
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
