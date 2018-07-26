@@ -25,6 +25,10 @@ jobs:
           command: npm run lint
 
       - run:
+          name: Calculate Version
+          command: ci_scripts/ci_tool.sh --run_release
+
+      - run:
           name: Publish
           command: ci_scripts/ci_tool.sh --npm_publish
 
