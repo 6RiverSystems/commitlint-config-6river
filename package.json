@@ -4,20 +4,19 @@
   "description": "Customized version of @commitlint/config-conventional.",
   "main": "index.js",
   "dependencies": {
-    "@commitlint/config-conventional": "^7.0.1"
+    "@commitlint/config-conventional": "^7.1.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.0.0",
-    "eslint": "^5.2.0",
+    "@commitlint/cli": "^7.2.1",
+    "eslint": "^5.7.0",
     "eslint-config-6river": "^1.3.2",
-    "husky": "^0.14.3"
+    "husky": "^1.1.2"
   },
   "peerDependencies": {
-    "@commitlint/cli": "~7.0.0",
-    "husky": "~0.14.3"
+    "@commitlint/cli": "^7.2.1",
+    "husky": "^1.1.2"
   },
   "scripts": {
-    "commitmsg": "commitlint -e ${GIT_PARAMS}",
     "lint": "eslint .",
     "test": "npm run lint"
   },
@@ -36,5 +35,10 @@
   "bugs": {
     "url": "https://github.com/6RiverSystems/commitlint-config-6river/issues"
   },
-  "homepage": "https://github.com/6RiverSystems/commitlint-config-6river#readme"
+  "homepage": "https://github.com/6RiverSystems/commitlint-config-6river#readme",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
 }
