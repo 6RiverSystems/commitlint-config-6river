@@ -1,0 +1,6 @@
+.circleci/
+scripts/
+.editorconfig
+.eslintrc.json
+.gitignore
+.node-version

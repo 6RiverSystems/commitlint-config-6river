@@ -2,42 +2,25 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10
+      - image: circleci/node:10.15.1
     steps:
       - checkout
       - run:
           name: Set Up Environment
           command: |
-            git submodule update --init
-            ci_scripts/ci_tool.sh --setup_npm
-
-      - restore_cache:
-          key: |
-            - dependency-cache-{{ checksum "package.json" }}
-            - dependency-cache-
-
+            npm config set //registry.npmjs.org/:_authToken "${NPM_TOKEN}"
       - run:
           name: Install Dependencies
-          command: npm install
-
+          command: npm ci
       - run:
           name: Lint
           command: npm run lint
-
       - run:
-          name: Calculate Version
-          command: ci_scripts/ci_tool.sh --run_release
-
-      - run:
-          name: Publish
-          command: ci_scripts/ci_tool.sh --npm_publish
-
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
+          name: Release
+          command: ./scripts/release.sh
 workflows:
   version: 2
   build:
     jobs:
-      - build
+      - build:
+          context: 6rs-public-npm
