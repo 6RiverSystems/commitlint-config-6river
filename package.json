@@ -1,5 +1,5 @@
 {
-  "name": "@sixriver/commitlint-config-6river",
+  "name": "@6river/commitlint-config-6river",
   "version": "0.0.0-development",
   "description": "Customized version of @commitlint/config-conventional.",
   "main": "index.js",
