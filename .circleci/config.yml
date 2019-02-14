@@ -10,32 +10,18 @@ jobs:
           command: |
             git submodule update --init
             ci_scripts/ci_tool.sh --setup_npm
-
-      - restore_cache:
-          key: |
-            - dependency-cache-{{ checksum "package.json" }}
-            - dependency-cache-
-
       - run:
           name: Install Dependencies
-          command: npm install
-
+          command: npm ci
       - run:
           name: Lint
           command: npm run lint
-
       - run:
           name: Calculate Version
           command: ci_scripts/ci_tool.sh --run_release
-
       - run:
           name: Publish
           command: ci_scripts/ci_tool.sh --npm_publish
-
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
 workflows:
   version: 2
   build:
