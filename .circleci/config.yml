@@ -7,8 +7,7 @@ jobs:
       - checkout
       - run:
           name: Set Up Environment
-          command: |
-            npm config set //registry.npmjs.org/:_authToken "${NPM_TOKEN}"
+          command: npm config set //registry.npmjs.org/:_authToken "${NPM_TOKEN}"
       - run:
           name: Install Dependencies
           command: npm ci
