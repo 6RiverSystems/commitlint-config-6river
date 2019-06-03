@@ -1,5 +1,7 @@
 # @6river/commitlint-config-6river
 
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=6RiverSystems/commitlint-config-6river)](https://dependabot.com)
+
 Extends [@commitlint/config-conventional](https://github.com/marionebl/commitlint/tree/master/@commitlint/config-conventional).
 
 Shareable `commitlint` config enforcing [conventional commits](https://conventionalcommits.org/).
