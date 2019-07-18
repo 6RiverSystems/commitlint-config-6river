@@ -4,17 +4,17 @@
   "description": "Customized version of @commitlint/config-conventional.",
   "main": "index.js",
   "dependencies": {
-    "@commitlint/config-conventional": "^8.0.0"
+    "@commitlint/config-conventional": "^8.1.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.0.0",
+    "@commitlint/cli": "^8.1.0",
     "eslint": "^6.0.1",
     "eslint-config-6river": "^2.1.0",
-    "husky": "^2.4.0"
+    "husky": "*"
   },
   "peerDependencies": {
     "@commitlint/cli": "^8.0.0",
-    "husky": "^2.4.0"
+    "husky": "*"
   },
   "scripts": {
     "lint": "eslint .",
