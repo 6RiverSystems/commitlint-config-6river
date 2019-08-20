@@ -9,7 +9,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "eslint": "^6.0.1",
-    "eslint-config-6river": "^2.1.0",
+    "eslint-config-6river": "^3.0.0",
     "husky": "*"
   },
   "peerDependencies": {
