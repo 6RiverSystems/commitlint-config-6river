@@ -1,132 +1,40 @@
-# @6river/commitlint-config-6river
+# `@6river/commitlint-config-6river`
 
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=6RiverSystems/commitlint-config-6river)](https://dependabot.com)
 
-Extends [@commitlint/config-conventional](https://github.com/marionebl/commitlint/tree/master/@commitlint/config-conventional).
+6 River Systems `commitlint` configuration.
 
-Shareable `commitlint` config enforcing [conventional commits](https://conventionalcommits.org/).
-Use with [@commitlint/cli](../cli) and [@commitlint/prompt-cli](../prompt-cli).
+`commitlint` is a tool that checks commit messages for conformance to the [conventional commits](https://conventionalcommits.org/) specification. Standardized commit messages are useful for automation of versioning and changelogs.
 
-## Getting started
+## Installation
 
-```sh
-npm install --save-dev @commitlint/config-conventional @commitlint/cli
-echo "module.exports = {extends: ['@commitlint/config-conventional']};" > commitlint.config.js
+The following instructions use [Husky](https://github.com/typicode/husky/) for commit hooks.
+
+```shell
+npm install --save-dev @commitlint/cli husky @6river/commitlint-config-6river
 ```
 
-## Rules
-### Problems
-
-The following rules are considered problems for `@commitlint/config-conventional` and will yield a non-zero exit code when not met.
-
-Consult [docs/rules](http://marionebl.github.io/commitlint/#/reference-rules) for a list of available rules.
-
-
-#### type-enum
-* **condition**: `type` is found in value
-* **rule**: `always`
-* **value**
-
-  ```js
-  [
-    'build',
-    'ci',
-    'chore',
-    'docs',
-    'feat',
-    'fix',
-    'perf',
-    'refactor',
-    'revert',
-    'style',
-    'test'
-  ]
-  ```
-
-```sh
-echo "foo: some message" # fails
-echo "fix: some message" # passes
+The simplest way to configure `commitlint` is in `package.json`:
+```json
+"commitlint": {
+	"extends": [
+		"@6river/commitlint-config-6river"
+	]
+}
 ```
 
-#### type-case
-* **description**: `type` is in case `value`
-* **rule**: `always`
-* **value**
-  ```js
-    'lowerCase'
-  ```
-
-```sh
-echo "FIX: some message" # fails
-echo "fix: some message" # passes
-```
-
-#### type-empty
-* **condition**: `type` is empty
-* **rule**: `never`
-
-```sh
-echo ": some message" # fails
-echo "fix: some message" # passes
-```
-
-#### scope-case
-* **condition**: `scope` is in case `value`
-* **rule**: `always`
+You can also use a standalone file `commitlint.config.js`:
 ```js
-  'lowerCase'
+module.exports = {extends: ['@6river/commitlint-config-6river']}
 ```
 
-```sh
-echo "fix(SCOPE): some message" # fails
-echo "fix(scope): some message" # passes
+The commit hook must be configured in `package.json`, merging with any existing `husky` configuration:
+```json
+"husky": {
+	"hooks": {
+		"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+	}
+}
 ```
 
-#### subject-case
-* **condition**: `subject` is in one of the cases `['sentence-case', 'start-case', 'pascal-case', 'upper-case']`
-* **rule**: `never`
-
-```sh
-echo "fix(SCOPE): Some message" # fails
-echo "fix(SCOPE): Some Message" # fails
-echo "fix(SCOPE): SomeMessage" # fails
-echo "fix(SCOPE): SOMEMESSAGE" # fails
-echo "fix(scope): some message" # passes
-echo "fix(scope): some Message" # passes
-```
-
-#### subject-empty
-* **condition**: `subject` is empty
-* **rule**: `never`
-
-```sh
-echo "fix:" # fails
-echo "fix: some message" # passes
-```
-
-#### subject-full-stop
-* **condition**: `subject` ends with `value`
-* **rule**: `never`
-* **value**
-```js
-  '.'
-```
-
-```sh
-echo "fix: some message." # fails
-echo "fix: some message" # passes
-```
-
-
-#### header-max-length
-* **condition**: `header` has `value` or less characters
-* **rule**: `always`
-* **value**
-```js
-  72
-```
-
-```sh
-echo "fix: some message that is way too long and breaks the line max-length by several characters" # fails
-echo "fix: some message" # passes
-```
+For more information, see [the `commitlint` documentation](https://commitlint.js.org/).
