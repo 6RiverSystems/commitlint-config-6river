@@ -8,8 +8,8 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
-    "eslint": "^6.2.1",
-    "eslint-config-6river": "^4.0.0",
+    "eslint": "^7.2.0",
+    "eslint-config-6river": "^5.0.0",
     "husky": "*"
   },
   "peerDependencies": {
