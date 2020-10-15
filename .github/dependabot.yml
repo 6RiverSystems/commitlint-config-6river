@@ -10,3 +10,5 @@ updates:
   reviewers:
   - AdamVig
   versioning-strategy: widen
+  ignore:
+    - dependency-name: "eslint-config-6river"
