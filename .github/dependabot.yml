@@ -12,3 +12,4 @@ updates:
     versioning-strategy: widen
     ignore:
       - dependency-name: "eslint-config-6river"
+      - dependency-name: "@6river/prettier-config"
