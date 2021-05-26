@@ -1,14 +1,14 @@
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: daily
-  pull-request-branch-name:
-    separator: "-"
-  open-pull-requests-limit: 10
-  reviewers:
-  - AdamVig
-  versioning-strategy: widen
-  ignore:
-    - dependency-name: "eslint-config-6river"
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: daily
+    pull-request-branch-name:
+      separator: "-"
+    open-pull-requests-limit: 10
+    reviewers:
+      - AdamVig
+    versioning-strategy: widen
+    ignore:
+      - dependency-name: "eslint-config-6river"
