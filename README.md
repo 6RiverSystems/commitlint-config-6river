@@ -28,13 +28,15 @@ You can also use a standalone file `commitlint.config.js`:
 module.exports = {extends: ['@6river/commitlint-config-6river']}
 ```
 
-The commit hook must be configured in `package.json`, merging with any existing `husky` configuration:
-```json
-"husky": {
-	"hooks": {
-		"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-	}
-}
+If you already have a pre-commit hook in `.husky/commit-msg`, add this line to it:
+```shell
+npx commitlint --edit $1
+```
+
+If you do not have the file `.husky/commit-msg`, run the following to create it:
+```shell
+npx husky add .husky/commit-msg "npx commitlint --edit $1"
+git add .husky/commit-msg
 ```
 
 For more information, see [the `commitlint` documentation](https://commitlint.js.org/).
