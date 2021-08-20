@@ -7,18 +7,18 @@
     "@commitlint/config-conventional": "^13.1.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
+    "@commitlint/cli": "^13.1.0",
     "eslint": "^7.11.0",
     "eslint-config-6river": "^5.0.0",
-    "husky": "*"
+    "husky": "^7.0.0"
   },
   "peerDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "husky": "*"
+    "@commitlint/cli": ">11.0.0"
   },
   "scripts": {
     "lint": "eslint .",
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -35,10 +35,5 @@
   "bugs": {
     "url": "https://github.com/6RiverSystems/commitlint-config-6river/issues"
   },
-  "homepage": "https://github.com/6RiverSystems/commitlint-config-6river#readme",
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  }
+  "homepage": "https://github.com/6RiverSystems/commitlint-config-6river#readme"
 }
