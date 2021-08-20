@@ -13,8 +13,7 @@
     "husky": "^7.0.0"
   },
   "peerDependencies": {
-    "@commitlint/cli": "*",
-    "husky": "*"
+    "@commitlint/cli": "*"
   },
   "scripts": {
     "lint": "eslint .",
