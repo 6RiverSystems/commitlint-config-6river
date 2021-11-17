@@ -7,7 +7,7 @@
     "@commitlint/config-conventional": "^15.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^14.1.0",
+    "@commitlint/cli": "^15.0.0",
     "eslint": "^7.11.0",
     "eslint-config-6river": "^5.0.0",
     "husky": "^7.0.0"
