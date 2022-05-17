@@ -4,7 +4,7 @@
   "description": "Customized version of @commitlint/config-conventional.",
   "main": "index.js",
   "dependencies": {
-    "@commitlint/config-conventional": "^16.0.0"
+    "@commitlint/config-conventional": "^17.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",
