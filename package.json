@@ -35,5 +35,9 @@
   "bugs": {
     "url": "https://github.com/6RiverSystems/commitlint-config-6river/issues"
   },
-  "homepage": "https://github.com/6RiverSystems/commitlint-config-6river#readme"
+  "homepage": "https://github.com/6RiverSystems/commitlint-config-6river#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }
